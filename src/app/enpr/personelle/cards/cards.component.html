@@ -1,0 +1,65 @@
+<div class="pos-f-t">
+
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h4 class="text-white">Chercher un profile</h4>
+    </div>
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Company (disabled)</mat-label>
+          <input matInput disabled value="Google">
+        </mat-form-field>
+      
+    
+      
+    
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Pays</mat-label>
+            <input matInput placeholder="Ex. San Francisco">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Secteur</mat-label>
+            <input matInput placeholder="Ex. California">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Poste </mat-label>
+            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
+            <mat-hint align="end"></mat-hint>
+          </mat-form-field></td>
+        </tr></table>
+      </form>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  
+    </button>
+  </nav>
+</div>
+<div class="container">
+    <div class="row"  >
+      <div class="col-sm" *ngFor="let row of cards" >
+        <mat-card class="example-card" >
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{row.day}}</mat-card-title>
+              <mat-card-subtitle>{{row.month}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{cheminImage2}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                {{row.description}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+                </div>
+      
+    </div>
+  </div>
+  

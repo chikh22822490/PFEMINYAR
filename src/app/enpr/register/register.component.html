@@ -1,0 +1,75 @@
+<div class="col-md-12">
+    <div class="animated flipInX">
+        <div class="card card-container">
+            <!-- <img
+        id="profile-img" *ngIf="!personelle" 
+        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        class="profile-img-card"
+      />
+      <img *ngIf="personelle.img" 
+      id="profile-img"
+      src="data:image/png;base64,{{personelle.img}}"
+      class="profile-img-card"
+    /> -->
+
+            <input type="search" pInputText placeholder="Chercher Avec matricule" (change)="change($event.target.value)"
+                class="form-control mr-sm-2" aria-label="Search">
+            <div *ngIf="personelle">
+
+                <div class="form-group">
+                    <label>Nom : {{personelle.nom}} </label>
+
+                </div>
+                <div class="form-group">
+
+
+                    <label>Prénom : {{personelle.prenom}} </label>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Mobile : {{personelle.mobile}}  </label>
+
+                </div>
+
+           
+
+
+                <div class="form-group">
+                    <p-dropdown [options]="roles" placeholder=" Roles " [filter]="true" id="role"
+                        (onChange)="onChange($event)" name="role"></p-dropdown>
+
+                </div>
+                <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+              
+
+                    <div class="form-group">
+
+                        <label for="password">Mot de passe
+                            <input type="password" class="form-control" name="password" [(ngModel)]="form.password"
+                                required minlength="3" #password="ngModel" />
+                        </label>
+                        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+                            <div *ngIf="password.errors.required">Password is required</div>
+                            <div *ngIf="password.errors.minlength">
+                                Password must be at least 3 characters
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block">Enregistrer</button>
+                    </div>
+
+                    <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                        Signup failed!<br />{{ errorMessage }}
+                    </div>
+                </form>
+            </div>
+            <div class="alert alert-success" *ngIf="isSuccessful">
+                Your registration is successful!
+            </div>
+        </div>
+    </div>
+</div>
